@@ -1,1 +1,47 @@
+name: Practice CI
 
+on:   
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+
+     jobs:
+       build-and-test:
+         runs-on: ubuntu-latest
+
+     steps:
+    #1) Checkout your code
+       -  name: Checkout repository
+          uses: actions/checkout@v4
+
+    #2)  Set up Java
+      
+       -   name:  Set up JDK 21
+           uses:  actions/setup-java@v4
+           with:
+             distribution: temurin
+              java-version:'21'
+               cache:maven
+
+    # 3) Show basic environment info (just for practice)
+
+       -    name:  Show environment info
+            run: |
+              echo "Running on ${{ runner.os }}"
+              java -version
+              mvn -version
+             
+     # 4) Build + run tests  
+       - name:  Build and Maven
+         run: mvn -B clean verify
+          
+
+
+
+
+   
+            
+        
+    
