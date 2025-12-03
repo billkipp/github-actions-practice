@@ -37,6 +37,12 @@ jobs:
            -   name:  Build and Maven
                run: mvn -B clean
 
+           -  name: Stub build step (no pom.xml yet)
+              if: ${{ hashFiles('**/pom.xml') == '' }}
+              run: |
+                echo "No pom.xml found, skipping Maven build."
+                echo "This is just a stub step for CI practice."
+
 
 
 
