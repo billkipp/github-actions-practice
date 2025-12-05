@@ -25,7 +25,7 @@ jobs:
                  java-version: '21'
                
 
-    # 3) Show basic environment info (just for practice)
+    # 3) Show basic environment info (just for practice.)
 
            -   name:  Show environment info
                run: |
